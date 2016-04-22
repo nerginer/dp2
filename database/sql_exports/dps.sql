@@ -1,0 +1,4 @@
+INSERT INTO `dps` (`id`, `slug`, `name`, `eagleFile`, `thumbnail`, `svgFile`, `pdf`, `description`, `license`, `productUsedIn`, `user_id`, `category_id`, `created_at`, `updated_at`) VALUES
+(1, 'FT231XSUSBtoSerial', 'FT231XS USB to Serial', 'eaglefiles/FT231XSUSBtoSerial.sch', 'thumbnail/FT231XSUSBtoSerial.jpg', 'svg/FT231XSUSBtoSerial.svg', 'pdf/FT231XSUSBtoSerial.pdf', 'this is usb to ttl communication bridge', 'Creative commans', 'https://www.sparkfun.com/products/12757','1', '1','2016-04-14 00:00:00', NULL),
+(2, 'Power_VIN_5v_LM1117', 'Power 5v out LM1117', 'eagleFiles/Power_VIN_5v_LM1117.sch', 'thumbnail/Power_VIN_5v_LM1117.jpg', 'svg/interface.svg', 'pdf/Power_VIN_5v_LM1117.pdf', 'power 5 volts linear drop module', 'Creative Commons', 'https://www.sparkfun.com/products/12757','1','1', '2016-04-14 00:00:00', NULL);
+
