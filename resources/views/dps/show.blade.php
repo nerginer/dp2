@@ -44,7 +44,7 @@ function likeDp(dp_id,type)
                        
                         <div>
                             <p> {{ $dp->name }}</p>
-                            <p>by:{{ $dp->user->name }} &nbsp;&nbsp;&nbsp;  Likes:</p>
+                            <p>by:{{ $dp->user->name }}</p>
                         </div>
                        
                         <br>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
@@ -18,7 +18,17 @@
                     
                     <ul>
                         @foreach ($categories as $cat)
-                           <a href="/dps/categories/{{ $cat->id }}"> <li>{{ $cat->name }}</li></a>
+                          @if ($cat->parent_id==0)
+                              <a href="/dps/categories/{{ $cat->id }}"><b> <li>{{ $cat->name }}</li></b></a>
+                              @foreach ($categories as $subcat)
+                                 @if ($subcat->parent_id == $cat->id)
+                                   <a href="/dps/categories/{{ $subcat->id }}"> - {{ $subcat->name }} <br></a>
+                                 @endif 
+                                 
+                              @endforeach
+                           
+                          @endif 
+                          
                         @endforeach
                     </ul>
                    
@@ -54,7 +64,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <h3 class="panel-title" style="padding-left:15px;">Design Patterns (total:{!!  $dps->total() !!})</h3>
-                        @include('search',['url'=>'q','link'=>'dps/create'])
+                        @include('search',['url'=>'/q','link'=>'dps/create'])
                     </div>
                     
                 </div>
