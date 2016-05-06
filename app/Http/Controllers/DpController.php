@@ -80,14 +80,39 @@ class DpController extends Controller
     
      public function category(category $category)
     {
+  
+  
+   //   if ($category->parent_id==0) {
+        
+           
+        //  $tempCategories = Category::where('parent_id',$category->id)->get();
+     
+         // foreach ($tempCategories as $tempCategory )    {      
+              
+     //       $dps = $tempCategory->dps()->get();
+       //   }
+           
+         //  dd($dps);
+          
+    //      $tags =tag::all();
+    //      $categories = Category::all();
+    //      return view('dps.index', compact('dps','tags','category','categories'));
+           
+   //    }else {
+  
+  
+      
+           $dps = $category->dps()->Paginate(4);
+           
+           $tags =tag::all();
+           $categories = Category::all();
+           //return $dps;
+        //   return view('dps.index',array('dps' => $dps,'tags' => $tags,'category' => $category,'categories' =>$categories));
+           return view('dps.index', compact('dps','tags','category','categories'));
+           
+           //return view('dps.index',compact('dps'),compact('tag'));
        
-       $dps = $category->dps()->Paginate(4);
-       $tags =tag::all();
-       $categories = Category::all();
-       //return $dps;
-       return view('dps.index',array('dps' => $dps,'tags' => $tags,'category' => $category,'categories' =>$categories));
-       
-       //return view('dps.index',compact('dps'),compact('tag'));
+      // }
         
     }
     

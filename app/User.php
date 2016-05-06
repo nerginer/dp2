@@ -29,6 +29,11 @@ class User extends Authenticatable
         return $this->hasMany(dp::class);
     }
     
+       public function proposals()
+    {
+        return $this->hasMany(proposal::class);
+    }
+    
 
 
 

@@ -4,62 +4,12 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="row">
-                        <h3 class="panel-title" style="padding-left:15px;">Categories</h3>
-                       
-                    </div>
-                    
-                </div>
-                    
-                 
-                <div class="panel-body">
-                    
-                    <ul>
-                        @foreach ($categories as $cat)
-                          @if ($cat->parent_id==0)
-                              <a href="/dps/categories/{{ $cat->id }}"><b> <li>{{ $cat->name }}</li></b></a>
-                              @foreach ($categories as $subcat)
-                                 @if ($subcat->parent_id == $cat->id)
-                                   <a href="/dps/categories/{{ $subcat->id }}"> - {{ $subcat->name }} <br></a>
-                                 @endif 
-                                 
-                              @endforeach
-                           
-                          @endif 
-                          
-                        @endforeach
-                    </ul>
-                   
-                </div>
-            </div> 
+            @include('category',['categories'=>$categories])
             
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="row">
-                        <h3 class="panel-title" style="padding-left:15px;">Tags</h3>
-                       
-                    </div>
-                    
-                </div>
-                    
-                 
-                <div class="panel-body">
-                    
-                    <ul>
-                     
-                        @foreach ($tags as $t)
-                           <a href="/dps/tags/{{ $t->id }}"> <li>{{ $t->name }}</li></a>
-                        @endforeach
-                       
-                    </ul>
-                   
-                </div>
-            </div> 
+            @include('tag',['tags'=>$tags])
             
         </div>    
-        <div class="col-sm-8">    
+        <div class="col-sm-9">    
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
@@ -84,6 +34,9 @@
                     @endif
                     
                     <div><br></div>
+                    
+                    
+                    
                     
                     <div class="row">    
                         @foreach ($dps as $dp)
@@ -111,5 +64,6 @@
         </div>
         
     </div>
+</div>
 </div>
 @endsection

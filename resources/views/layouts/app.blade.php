@@ -23,6 +23,22 @@
         .fa-btn {
             margin-right: 6px;
         }
+        
+        #footer {
+          height: 60px;
+        }
+        #footer {
+          background-color: #eee;
+        }
+        
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
     </style>
 </head>
 <body id="app-layout">
@@ -47,8 +63,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                <!--    <li><a href="{{ url('/home') }}">Home</a></li>  -->
                     <li><a href="{{ url('/dps') }}">Design Patterns</a></li>
+                 <!--   <li><a href="{{ url('/proposals') }}">Proposals</a></li> -->
 
                 </ul>
 
@@ -75,6 +92,16 @@
     </nav>
 
     @yield('content')
+    
+
+    @include('footer')
+
+
+         
+
+
+    
+    
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

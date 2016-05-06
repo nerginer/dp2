@@ -14,7 +14,7 @@
                          <p>For turning great ideas into working products we have to look at what others did before.</p>
                          <p> Building something new from a foundation of existing ideas is a key in creativity to make something better</p>
                          <p>We try to bring the electronic building blocks together and call them <b>crowd-sourced library of Design Patterns</b></p>
-                   
+                         <p>Assemble Design Patterns like building blocks to quickly develop awesome new projects.</p>
                      </h4>
                       
                       

@@ -66,9 +66,29 @@ function likeDp(dp_id,type)
                         </ul>
                         @if (Auth::check())
                         
-                         <p><a style="@if($isUserLiked==1) display:none; @endif background-color:grey;color:white"  href="javascript:;" id="likeBtn" onclick="likeDp({{  $dp->id }},'like')" class="btn"><span class="glyphicon glyphicon-thumbs-up"></span> Like</a></p>
-                          
-                         <p>  <a  @if($isUserLiked==0) style="display:none;" @endif onclick="likeDp({{  $dp->id }},'unlike')"  href="javascript:;" id="youLikeThis"  class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span>Like</a> </p>
+                            <p>
+                                <a style="@if($isUserLiked==1) 
+                                             display:none; 
+                                          @endif 
+                                          background-color:grey;
+                                          color:white"  
+                                          href="javascript:;" id="likeBtn" 
+                                          onclick="likeDp({{  $dp->id }},'like')" 
+                                          class="btn">
+                                          <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                                </a>
+                            </p>
+                              
+                            <p>
+                                <a  @if($isUserLiked==0) 
+                                        style="display:none;" 
+                                    @endif 
+                                    onclick="likeDp({{  $dp->id }},'unlike')"  
+                                    href="javascript:;" id="youLikeThis"  
+                                    class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>Like
+                                </a> 
+                            </p>
                         @endif  
                       <span>Total Likes:</span><span id="countSpan"> {{ $totalLikes}}</span>
                 </div>

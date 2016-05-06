@@ -44,3 +44,5 @@ Route::get('message', 'DpController@message');
 
 Route::get('dps/{dp}/like', 'DpController@incLikes');
 
+Route::get('proposals', 'ProposalController@index');
+

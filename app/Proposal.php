@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Dp extends Model
+class Proposal extends Model
 {
       public function tags()
     {
@@ -13,18 +13,11 @@ class Dp extends Model
        
     }
 
-    public function categories()
-    {
-       return $this->belongsToMany(Category::class,"dp_category");
-       
-    }
 
 	public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
-    
 
   
  

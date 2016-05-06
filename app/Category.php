@@ -13,6 +13,9 @@ class Category extends Model
        return $this->belongsToMany(dp::class,"dp_category");
        
     }
+
+ 
+       
 }
 
 
