@@ -19,6 +19,14 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/about', 'HomeController@about');
+
+Route::get('/contact', 'HomeController@contact');
+
+Route::get('/privacy_policy', 'HomeController@privacy_policy');
+
+Route::get('/terms_of_use', 'HomeController@terms_of_use');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
