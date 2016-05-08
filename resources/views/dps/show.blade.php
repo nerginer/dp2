@@ -40,21 +40,23 @@ function likeDp(dp_id,type)
                        
                     
                         
-                        <div><embed src="/sch_pdf/{{ $dp->slug }}.pdf" width="800" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"></div>  
+                        <div><embed src="/sch_pdf/{{ $dp->slug }}.pdf" width="900" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"></div>  
                        
                         <div>
-                            <p> {{ $dp->name }}</p>
-                            <p>by:{{ $dp->user->name }}</p>
+                            <p><b> {{ $dp->name }}</b></p>
+                            <p><b>Loaded here by:</b>{{ $dp->user->name }}</p>
                         </div>
                        
                         <br>
                         
                         
-                        <p><b>Description:</b> {{ $dp->description }}</p>
-                        <p><b>Licance:</b> {{ $dp->license }}</p>
+                        <p style="text-align: justify;"><b>Description:</b> {{ $dp->description }}</p>
+                        <p><b>Licance:</b> <a href="{{ $dp->licence_link }}">{{ $dp->license }}</a></p>
+                        
+                        
                         <p><b>Product Used in:</b><a href="{{ $dp->productUsedIn }}"> {{ $dp->productUsedIn }}</a></p>
                          
-                        Tags:
+                        <b>Tags:</b>
                         <ul>
                         
                              @foreach ($dp->tags as $tag)
@@ -64,6 +66,12 @@ function likeDp(dp_id,type)
                             @endforeach
                         
                         </ul>
+                        @if (Auth::check())
+                             <p><b>Source:</b>  <a href="/eagle_sch/{{ $dp->slug }}.sch"> Eagle File </a></p>
+                        @else
+                             <p><b>Login to download Eagle File</b> </p>
+                        @endif
+                        
                         @if (Auth::check())
                         
                             <p>
@@ -90,7 +98,7 @@ function likeDp(dp_id,type)
                                 </a> 
                             </p>
                         @endif  
-                      <span>Total Likes:</span><span id="countSpan"> {{ $totalLikes}}</span>
+                      <span><b>Total Likes:</span><span id="countSpan"> {{ $totalLikes}}</b></span>
                 </div>
             </div>
         </div>
