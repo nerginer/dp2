@@ -17,7 +17,7 @@
                     bring simple building blocks of electronic schematics together for makers who 
                     want to design something from scratch. These design patterns are extracted from open source projects and most of them are used in already selling products.
                     This make us sure that the patterns will work. We hope that MakerStorage community will be part of the Open Source Hardware Comunity. We hope to find a family of electronics enthusiasts willing to share design patterns, contribute and support each other to develop new
-                    projects. We will prototype them with the help of one of our high-quality Chines PCB supliers. The comunity's encouraging comments, teamwork, and crowd-sourced libraries will reach us to great products.
+                    projects. We will prototype them with the help of one of our high-quality Chines PCB supliers. The comunity's encouraging comments, teamwork, and crowd-sourced libraries will help us to reach to great products.
                     People will sell here their designs and will earn some money to spend for their next big project.</p>
                       
                     <center><img class="aligncenter wp-image-739 size-full" src="images/maker_storage_web.jpg" alt="Web" width="381" height="247" />
