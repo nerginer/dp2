@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<script id="dsq-count-scr" src="//makerstorage.disqus.com/count.js" async></script>
 @section('content')
 <div class="container">
     <div class="row">
@@ -46,13 +46,18 @@
                                      <img class="card-img-top" src="/thumbnail/{{ $dp->slug }}.jpg" height="190" width="220">                
                                      <div class="card-block">
                                          <h4 class="card-title"> {{ $dp->name }}</h4>
-                                         <p class="card-text">by:{{ $dp->user->name }} &nbsp;&nbsp;&nbsp;  Likes:
-                                         {{   \DB::table('dp_likes')->where('dp_id',$dp->id)->count()   }}
+                                         <p class="card-text">by:{{ $dp->user->name }} &nbsp;&nbsp;&nbsp;
+                                          {{   \DB::table('dp_likes')->where('dp_id',$dp->id)->count()   }}
+                                         Likes: &nbsp;&nbsp;&nbsp; <a href="/dps/{{ $dp->id }}#disqus_thread"></a>
+                                        
+                                         
                                          </p>
                                          
                                     </div>
                                 </div>   
                             </a>
+                             
+                                        
                         </div>    
                         @endforeach
                     </div> 
