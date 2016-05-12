@@ -6,10 +6,10 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Proposals</div>
+                <div class="panel-heading">Proposal</div>
                  
                 <div class="panel-body">
-                    Proposals
+                   
                     <div><br></div>
                    
                        
@@ -26,6 +26,18 @@
                         
                         <p style="text-align: justify;"><b>Description:</b> {{ $proposal->description }}</p>
                         
+                        
+                         <b>Design Patterns used in this Proposal:</b>
+                        <ul>
+                        
+                             @foreach ($proposal->dps as $dp)
+                                  
+                                <a href="/dps/{{ $dp->id }}"> <li> {{ $dp->name }}</li></a>
+                             
+                            @endforeach
+                        
+                        </ul>
+                        
                          
                         <b>Tags:</b>
                         <ul>
@@ -37,6 +49,8 @@
                             @endforeach
                         
                         </ul>
+                        
+                        
                       
                       
                       

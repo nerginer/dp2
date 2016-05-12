@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dp extends Model
 {
-      public function tags()
+    
+    public function proposals()
+    {
+       return $this->belongsToMany(Proposal::class,"proposal_dp");
+       
+    }
+    
+    public function tags()
     {
        return $this->belongsToMany(tag::class);
        
