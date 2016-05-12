@@ -2,6 +2,8 @@
 
 namespace App;
 use App\Dp;
+use App\Proposal;
+
 
 use Illuminate\Database\Eloquent\Model;
 

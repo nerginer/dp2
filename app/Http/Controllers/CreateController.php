@@ -17,9 +17,15 @@ class CreateController extends Controller
         $this->middleware('auth');
     }
 
-       public function dp_create()
+    public function dp_create()
     {
         return view('dps.create');
+    }
+    
+    public function proposal_create()
+    {
+        
+        return view('proposals.create');
     }
 
 

@@ -21,7 +21,7 @@
                     <ul>
                      
                         @foreach ($tags as $t)
-                           <a href="/dps/tags/{{ $t->id }}"> <li>{{ $t->name }}</li></a>
+                           <a href="/proposals/tags/{{ $t->id }}"> <li>{{ $t->name }}</li></a>
                         @endforeach
                        
                     </ul>
@@ -35,7 +35,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <h3 class="panel-title" style="padding-left:15px;">Proposals (total:{!!  $proposals->total() !!})</h3>
-                        @include('search',['url'=>'/q','link'=>'proposals/create'])
+                        @include('search',['url'=>'/proposal_q','link'=>'proposals/create'])
                     </div>
                     
                 </div>
