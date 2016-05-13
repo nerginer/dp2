@@ -29,9 +29,16 @@
                         
                          <b>Design Patterns used in this Proposal:</b>
                         <ul>
-                        
+                             <?php $temp=''; ?> {{--bu değişken arka arkaya aynı categoryi yazmamak için--}}
                              @foreach ($proposal->dps as $dp)
-                                  
+                                 @foreach ($dp->categories as $cat)
+                                     @if (($cat->parent_id!=0)  and ($temp!=$cat->name)) 
+                                       {{$cat->name}}
+                                        <?php $temp=$cat->name; ?>  
+                                     @endif 
+                                 @endforeach
+                                 
+                                 
                                 <a href="/dps/{{ $dp->id }}"> <li> {{ $dp->name }}</li></a>
                              
                             @endforeach
