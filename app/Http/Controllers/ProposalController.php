@@ -67,7 +67,19 @@ class ProposalController extends Controller
         
         $user  = \Auth::user();
         
-        return $data;
+        $proposal = new Proposal;
+        $proposal->name            = $data['hProposalName'];
+        $proposal->description     = $data['hProposalDescription'];
+        $proposal->vote           = 21;
+        $proposal->views           = 21;
+        $proposal->comments           = 21;
+        $proposal->short_description = substr($data['hProposalDescription'],0,10);
+        $proposal->user_id = $user['id'];
+        $proposal->save();
+       
+
+       
+        return ('saved');
         
     }
 
