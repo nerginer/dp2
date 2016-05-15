@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Dp;
+use App\Category;
+
 
 class CreateController extends Controller
 {
@@ -24,8 +27,8 @@ class CreateController extends Controller
     
     public function proposal_create()
     {
-        
-        return view('proposals.create');
+         $dps = Dp::all();
+        return view('proposals.create',compact('dps'));
     }
 
 

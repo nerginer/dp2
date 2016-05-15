@@ -58,5 +58,17 @@ class ProposalController extends Controller
         
 
      }
+     
+       public function sendForm()
+    {
+       
+        //Get all the data and store it inside Store Variable
+        $data = \Request::all();
+        
+        $user  = \Auth::user();
+        
+        return $data;
+        
+    }
 
 }

@@ -66,3 +66,5 @@ Route::get('proposals/tags/{tag}', 'ProposalController@tag');
 
 Route::get('proposal_q', 'ProposalController@search');
 
+Route::post('proposal/sendForm', 'ProposalController@sendForm');
+
