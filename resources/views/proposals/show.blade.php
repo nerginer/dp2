@@ -13,7 +13,7 @@
                     <div><br></div>
                    
                        
-                    
+                            <?php $proposal->increment('views'); ?> 
                         
                        
                         <div>
@@ -22,8 +22,8 @@
                         </div>
                        
                         <br>
-                        
-                        
+                         <p><b>Download single merged schematic file:</b> Coming Soon</p>
+                        <br>
                         <p style="text-align: justify;"><b>Description:</b> {{ $proposal->description }}</p>
                         
                         

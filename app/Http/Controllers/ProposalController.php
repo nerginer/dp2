@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Proposal;
+use App\Dp;
+
 use App\tag;
+
+use Session;
 
 class ProposalController extends Controller
 {
         public function index()
     {
-        $proposals = Proposal::Paginate(10);
+        $proposals = Proposal::orderBy('views','desc')->Paginate(10);
         $tags =tag::all();
         $tag=0;
         
@@ -64,22 +68,85 @@ class ProposalController extends Controller
        
         //Get all the data and store it inside Store Variable
         $data = \Request::all();
+
         
         $user  = \Auth::user();
         
         $proposal = new Proposal;
         $proposal->name            = $data['hProposalName'];
         $proposal->description     = $data['hProposalDescription'];
-        $proposal->vote           = 21;
-        $proposal->views           = 21;
-        $proposal->comments           = 21;
+        $proposal->vote            = 0;
+        $proposal->views           = 0;
+        $proposal->comments        = 0;
         $proposal->short_description = substr($data['hProposalDescription'],0,10);
         $proposal->user_id = $user['id'];
-        $proposal->save();
+        
+        if  ($proposal->save()) {
+  
+        
+            if (isset($data['sensorFinal'])) {
+                foreach  ($data['sensorFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+            
+            if (isset($data['processingFinal'])) {
+                foreach  ($data['processingFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+            
+            if (isset($data['communicationsFinal'])) {
+                foreach  ($data['communicationsFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+            
+            if (isset($data['userInterfaceFinal'])) {
+                foreach  ($data['userInterfaceFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+            
+            if (isset($data['storageFinal'])) {
+                foreach  ($data['storageFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+            
+            if (isset($data['voltageFinal'])) {
+                foreach  ($data['voltageFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+            
+            if (isset($data['physicalFinal'])) {
+                foreach  ($data['physicalFinal'] as $k => $v) {
+                     $dp = Dp::where('name',$v) -> first();
+                     $proposal->dps()->save($dp); 
+                     
+                }
+            }
+        }
+        
+            echo ("<script>alert('Proposal was successfuly added.');</script>");
+            
+       //     Session::flash('alert-success', 'Proposal was successfuly added.');
+            return \Redirect::to('proposals');
+            
        
-
-       
-        return ('saved');
         
     }
 

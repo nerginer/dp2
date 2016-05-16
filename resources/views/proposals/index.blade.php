@@ -58,7 +58,7 @@
                         <table class="table table-striped">
                                 <thead>
                                   <tr>
-                                    <th>Votes</th>
+                                    <th>Downloads</th>
                                     <th>Views</th>
                                     <th>Comments</th>
                                     <th>Name</th>
