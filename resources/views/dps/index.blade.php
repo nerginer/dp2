@@ -14,7 +14,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <h3 class="panel-title" style="padding-left:15px;">Design Patterns (total:{!!  $dps->total() !!})</h3>
-                        @include('search',['url'=>'/q','link'=>'dps/create'])
+                        @include('search',['url'=>'/dp_q','link'=>'dps/create'])
                     </div>
                     
                 </div>

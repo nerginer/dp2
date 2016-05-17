@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>Makers Electronic Design Patterns</h1></div>
+                <div class="panel-heading"><h1>Makers Electronic Design Patterns <br> <h4>(Under Construction)</h4></h1></div>
 
                 <div class="panel-body">
                      &nbsp;

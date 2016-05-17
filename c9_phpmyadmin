@@ -1,0 +1,5 @@
+mysql-ctl start
+phpmyadmin-ctl install
+
+git@github.com:nerginer/dp2.git
+
