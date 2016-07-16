@@ -54,3 +54,10 @@ Route::get('dps/{dp}/like', 'DpController@incLikes');
 
 Route::get('proposals', 'ProposalController@index');
 
+Route::get('/cart', 'CartController@index');
+
+Route::post('/cart', 'CartController@store');
+
+Route::delete('/cart_remove/{id}', 'CartController@destroy');
+
+Route::delete('emptyCart', 'CartController@emptyCart');

@@ -31,7 +31,18 @@ function likeDp(dp_id,type)
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Design Patterns</div>
+                <div class="panel-heading">Design Patterns
+                
+                        <div class="btn-group pull-right">
+                            <form action="/cart" method="POST">
+                              {!! csrf_field() !!}
+                              <input type="hidden" name="id" value="{{ $dp->id }}">
+                              <input type="hidden" name="name" value="{{ $dp->name }}">
+                              <input type="hidden" name="price" value="0">
+                              <input type="submit" class="btn btn-success btn-sm" value="Add to Cart">
+                            </form>
+                        </div>
+                </div>
                  
                 <div class="panel-body">
                     Design Patterns
