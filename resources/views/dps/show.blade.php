@@ -31,22 +31,37 @@ function likeDp(dp_id,type)
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Design Patterns
-                
-                        <div class="btn-group pull-right">
-                            <form action="/cart" method="POST">
+                <div class="panel-heading">
+                     <div class="row">
+                       <div class="col-md-8">
+                        <b> {{ $dp->name }}</b>
+                       </div>
+                       <div class="col-md-2">
+                         Price: ${{ $dp->price }}
+                       </div>
+                       <div class="col-md-2 btn-group ">
+                         <form action="/cart" method="POST">
                               {!! csrf_field() !!}
                               <input type="hidden" name="id" value="{{ $dp->id }}">
                               <input type="hidden" name="name" value="{{ $dp->name }}">
-                              <input type="hidden" name="price" value="0">
+                              <input type="hidden" name="price" value="{{ $dp->price }}">
                               <input type="submit" class="btn btn-success btn-sm" value="Add to Cart">
                             </form>
-                        </div>
+                       </div>
+                       
+                     </div>
+     
+     
+                     
                 </div>
                  
                 <div class="panel-body">
-                    Design Patterns
-                    <div><br></div>
+                     
+                        
+                       
+                        
+                        
+                    
                    
                        
                     
@@ -54,7 +69,7 @@ function likeDp(dp_id,type)
                         <div><embed src="/sch_pdf/{{ $dp->slug }}.pdf" width="900" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"></div>  
                        
                         <div>
-                            <p><b> {{ $dp->name }}</b></p>
+                            
                             <p><b>Loaded here by:</b>{{ $dp->user->name }}</p>
                         </div>
                        

@@ -18,7 +18,7 @@ class CreateDpsTable extends Migration
         
             $table->string('slug')->unique();
             $table->string('name');
-            
+            $table->decimal('price', 10, 2);
             $table->string('eagleFile');
             $table->string('thumbnail');
             $table->string('svgFile');

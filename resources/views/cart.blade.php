@@ -69,7 +69,7 @@
             </table>
 
             <a href="/dps" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp;
-            <a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>
+            <a href="#" class="btn btn-success btn-lg">Download as Single Eagle File</a>
 
             <div style="float:right">
                 <form action="/emptyCart" method="POST">
