@@ -37,7 +37,7 @@ function likeDp(dp_id,type)
                         <b> {{ $dp->name }}</b>
                        </div>
                        <div class="col-md-2">
-                         Price: ${{ $dp->price }}
+                         <b>Price: ${{ $dp->price }}</b>
                        </div>
                        <div class="col-md-2 btn-group ">
                          <form action="/cart" method="POST">
@@ -66,7 +66,7 @@ function likeDp(dp_id,type)
                        
                     
                         
-                        <div><embed src="/sch_pdf/{{ $dp->slug }}.pdf" width="900" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"></div>  
+                        <div><embed src="/sch_pdf/{{ $dp->slug }}.pdf#page=1&view=FitV" width="100%" height="650" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"></div>  
                        
                         <div>
                             

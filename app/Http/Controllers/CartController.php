@@ -29,12 +29,12 @@ class CartController extends Controller
             
             
            // Cart::add($request->id, $request->name, 1, $request->price)->associate('Dp','App');
-            $cartItem = Cart::add($request->id, $request->name, 1, $request->price);
+            $cartItem = Cart::instance(auth()->id())->add($request->id, $request->name, 1, $request->price);
 
             // Next we associate a model with the item.
-            Cart::associate($cartItem->rowId, 'App\Dp');
+            Cart::instance(auth()->id())->associate($cartItem->rowId, 'App\Dp');
 
-            return redirect('cart')->withSuccessMessage('Design Pattern was added to your cart!');
+            return redirect('cart')->withSuccessMessage('Design Pattern was added to your design cart!');
             
            
             
@@ -44,14 +44,14 @@ class CartController extends Controller
         {
             
            
-            Cart::remove($id);
+            Cart::instance(auth()->id())->remove($id);
             return redirect('cart')->withSuccessMessage('Item has been removed!');
         }
         
         public function emptyCart()
         {
-            Cart::destroy();
-            return redirect('cart')->withSuccessMessage('Your cart his been cleared!');
+            Cart::instance(auth()->id())->destroy();
+            return redirect('cart')->withSuccessMessage('Your design cart his been cleared!');
         }
 
 

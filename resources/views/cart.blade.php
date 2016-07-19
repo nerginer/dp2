@@ -4,7 +4,7 @@
 
     <div class="container">
         
-        <h1>Your Cart</h1>
+        <h1>Your Design Cart</h1>
 
         <hr>
 
@@ -20,13 +20,13 @@
             </div>
         @endif
 
-        @if (sizeof(Cart::content()) > 0)
+        @if (sizeof(Cart::instance(auth()->id())->content()) > 0)
 
             <table class="table">
                 <thead>
                     <tr>
                         <th class="table-image"></th>
-                        <th>Design Pattern</th>
+                        <th>Design Pattern(s)</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th class="column-spacer"></th>
@@ -35,7 +35,7 @@
                 </thead>
 
                 <tbody>
-                    @foreach (Cart::content() as $item)
+                    @foreach (Cart::instance(auth()->id())->content() as $item)
                     <tr>
                         <td class="table-image"><a href="{{ url('dps', [$item->id]) }}"><img src="/thumbnail/{{ $item->model->slug }}.jpg" height="190" width="220" alt="product" class="img-responsive cart-image"></a></td>
                         <td><a href="{{ url('dps', [$item->id]) }}">{{ $item->name }}</a></td>
@@ -60,7 +60,7 @@
                         <td class="table-image"></td>
                         <td style="padding: 40px;"></td>
                         <td class="small-caps table-bg" style="text-align: right">Your Total</td>
-                        <td class="table-bg">${{ Cart::total() }}</td>
+                        <td class="table-bg">${{ Cart::instance(auth()->id())->total() }}</td>
                         <td class="column-spacer"></td>
                         <td></td>
                     </tr>
@@ -68,7 +68,7 @@
                 </tbody>
             </table>
 
-            <a href="/dps" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp;
+            <a href="/dps" class="btn btn-primary btn-lg">Browse More </a> &nbsp;
             <a href="#" class="btn btn-success btn-lg">Download as Single Eagle File</a>
 
             <div style="float:right">
