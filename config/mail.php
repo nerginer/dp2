@@ -2,22 +2,16 @@
 
 return array(
  
-    'driver' => 'smtp',
+  'driver' => env('MAIL_DRIVER', 'mailgun'),
+  'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+  'port' => env('MAIL_PORT', 587),
+  'from' => ['address' => 'newDP@makerstorage.com', 'name' =>'dp.makerstorage'],
+  'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+  'username' => env('postmaster@makerstorage.com'),
+  'password' => env('abfd3df6739f421fec72b93646d1346a'),
+  'sendmail' => '/usr/sbin/sendmail -bs',
+  'pretend' => env('MAIL_PRETEND', false),
  
-    'host' => 'smtp.gmail.com',
- 
-    'port' => 587,
- 
-    'from' => array('address' => 'nerginer@gmail.com', 'name' => 'Nuri Erginer'),
- 
-    'encryption' => 'tls',
- 
-    'username' => 'nerginer@gmail.com',
- 
-    'password' => 'Mylove123',
- 
-    'sendmail' => '/usr/sbin/sendmail -bs',
- 
-    'pretend' => false,
+
  
 );

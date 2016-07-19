@@ -27,8 +27,6 @@ Route::get('/privacy_policy', 'HomeController@privacy_policy');
 
 Route::get('/terms_of_use', 'HomeController@terms_of_use');
 
-Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
 Route::get('dps', 'DpController@index');
@@ -44,7 +42,6 @@ Route::get('dps/categories/{category}', 'DpController@category');
 Route::get('q', 'DpController@search');
 
 Route::post('dps/sendForm', 'DpController@sendForm');
-
 
 Route::get('licence', 'DpController@licence');
 

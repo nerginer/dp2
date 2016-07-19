@@ -26,27 +26,27 @@
                     <ul>
                         
                         <li>
-                            Your desgin pattern must contain one base component. 
+                            Your desgin pattern must contain one base/main component.  
                         </li>
                         <li>
                             Your desgin pattern must have a single function.
                         </li>
                         <li>
-                            Please clearly define the input and output connections  and the voltage needs
+                            Please clearly define the input and output connections and the voltage needs
                         </li>
                         <li>
-                            Please keep in mind that this pice of electronic module must be reusable
+                            Please keep in mind that this pice of electronic module must be re-usable
                         </li>
                         <li>
                             If you grap this pattern from an open source project please indicate in the below form.
                         </li>
                         <li>
-                            If this desgin pattern belogs to you please select a Licence for protection.
+                            If this desgin pattern belogs to you, commit to share it as Open Source under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 
                         </li>
                         
                     </ul>
                     
-                    <form action="/dps/sendForm" method="POST">
+                    <form action="/dps/sendForm" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     
                         <!-- Name form input -->
@@ -69,20 +69,9 @@
                          <!-- Base Component pdf form input -->
                         <div class="form-group">
                             <input type="radio" value="open" name="val"> From Open Source Project:  Enter link below <input class ='form-control' type="text" name="opensourceproject"><br>
-                            <input type="radio" value="mydesgin" name="val"> It is my design Licance Type: 
+                            <input type="radio" value="mydesgin" name="val">This is my own desgin and you can use it under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> 
                         </div>
-                        <div class="form-group">
-                                <select name="licenceType">
-                                  <option value="CC BY">CC BY</option>
-                                  <option value="SHAREALIKE/CC BY-SA">SHAREALIKE/CC BY-SA</option>
-                                  <option value="NODERIVS/CC BY-ND">NODERIVS/CC BY-ND</option>
-                                  <option value="NONCOMMERCIAL/CC BY-NC">NONCOMMERCIAL/CC BY-NC</option>
-                                  <option value="NONCOMMERCIAL-SHAREALIKE/CC BY-NC-SA">NONCOMMERCIAL-SHAREALIKE/CC BY-NC-SA</option>
-                                  <option value="NONCOMMERCIAL-NODERIVS/CC BY-NC-ND">NONCOMMERCIAL-NODERIVS/CC BY-NC-ND</option>
-                                </select>
-                            <a href="/licence">More info on Licence</a> 
-                            
-                        </div>
+                       
                         
                         <!-- Tags input -->
                         <div class="form-group">

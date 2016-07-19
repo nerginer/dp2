@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+
 use App\Dp;
 use App\tag;
 use App\Category;
+
 
 
 use Illuminate\Support\Facades\Validator;
@@ -132,11 +133,13 @@ class DpController extends Controller
 
      }
      
-     public function sendForm()
+     public function sendForm(Request $request)
     {
        
         //Get all the data and store it inside Store Variable
-        $data = \Request::all();
+        $data = $request->all();
+        
+       //dd($data);
         
         $user  = \Auth::user();
         
@@ -146,9 +149,9 @@ class DpController extends Controller
         //{"_token":"dMKekQkq5Wqn4efEiXlNuEaYqpUIkU63HGwMed2c","name":"TestName","description":"Testdescription","baseComponent":"testbase","pdf":"testbaselink","val":"open","opensourceproject":"opensourcelink","tags":"teattag1,teattag2","eaglefile":"Breadboard_power r3.sch"}
         $rules = array (
             'name' => 'required',// uncomment if you want to grab this field
-        //    'description' => 'required|min:10',
-            //'email' => 'required|email',  uncomment if you want to grab this field
-         //   'eaglefile' => 'required'
+            //'description' => 'required|min:10',
+          //  'email' => 'required|email', // uncomment if you want to grab this field
+            'eaglefile' => 'required',
         );
 
         //Validate data
@@ -156,6 +159,10 @@ class DpController extends Controller
 
         //If everything is correct than run passes.
         if ($validator -> passes()){
+            
+            $destinationPath='uploads/';
+            $filename = uniqid() . '_eaglefile.sch';
+            $request->file('eaglefile')->move($destinationPath,$filename);
             
            
 
@@ -167,16 +174,20 @@ class DpController extends Controller
                 $message->to('nerginer@gmail.com', 'Nuri')->cc('nerginer@gnexlab.com')->subject('New Design Pattern');
 
             });
-                // Redirect to page
+                 
+                 
+                 // Redirect to page
                  return view('message')->with('message', 'Your message has been sent. Thank You!');
 
 
                
         }else{
                 //return contact form with errors
+               
                 $errors = $validator->errors()->all();
-
-                return view('message',compact('errors'));
+                // return $errors;
+                return view('message')->with('errors',$errors);
+               // return view('message',compact($errors));
                 
                 
 

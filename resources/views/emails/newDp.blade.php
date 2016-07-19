@@ -9,6 +9,6 @@
 <p>Base Component Pdf: {{ $data['pdf'] }} </p>
 <p>Open Source ?: {{ $data['val'] }} </p>
 <p>Open Source Project Link: {{ $data['opensourceproject'] }} </p>
-<p>Licence: {{ $data['licenceType'] }} </p>
+
 <p>Tags: {{ $data['tags'] }} </p>
 <p>Eagle Schematic File: {{ $data['eaglefile'] }} </p>
