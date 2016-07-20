@@ -71,7 +71,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Design Cart <span class="badge">{{ Cart::content()->count(false) }}</span> </a></li>
+                    <li><a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Design Cart <span class="badge">{{ Cart::content()->count(false) }}</span> </a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
