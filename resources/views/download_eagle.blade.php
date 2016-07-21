@@ -11,7 +11,7 @@
                     
                    
                        
-                        <div><a href="url">{{ $myoutput }}</a></div>
+                        <div><b><a href="url">{{ $myoutput }}</a></b></div>
                     
                     
                     

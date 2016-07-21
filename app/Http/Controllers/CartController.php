@@ -32,7 +32,13 @@ class CartController extends Controller
             //    return redirect('cart')->withSuccessMessage('Design Pattern is already in your cart!');
             //}
             
+            $numberOfItems = Cart::instance(auth()->id())->content()->count();
             
+            if ($numberOfItems > 5){
+                \Session::flash('error_message', 'Sorry we are currently supporting 6 patterns max!...');
+                return redirect('cart');
+
+            }
             
            // Cart::add($request->id, $request->name, 1, $request->price)->associate('Dp','App');
             $cartItem = Cart::instance(auth()->id())->add($request->id, $request->name, 1, $request->price);
@@ -83,7 +89,7 @@ class CartController extends Controller
             //var_dump($output);
             
             
-            //Cart::instance(auth()->id())->destroy();
+            Cart::instance(auth()->id())->destroy();
             
             return view('download_eagle')->with('myoutput', $output[0]);
             
