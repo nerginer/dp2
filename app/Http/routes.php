@@ -53,6 +53,8 @@ Route::get('proposals', 'ProposalController@index');
 
 Route::get('/cart', 'CartController@index');
 
+Route::get('/cart_run', 'CartController@runTestPython');
+
 Route::post('/cart', 'CartController@store');
 
 Route::delete('/cart_remove/{id}', 'CartController@destroy');

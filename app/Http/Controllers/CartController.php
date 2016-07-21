@@ -59,6 +59,37 @@ class CartController extends Controller
             Cart::instance(auth()->id())->destroy();
             return redirect('cart')->withSuccessMessage('Your design cart his been cleared!');
         }
+        
+        public function runTestPython(){
+            
+            $arg1 = '';
+            $user_name = str_replace(' ', '_', \Auth::user()->name);
+            $outfilename = $user_name . '_'.uniqid().'.sch';
+            
+             
+            foreach (Cart::instance(auth()->id())->content() as $item) {
+                $arg1 = $arg1 . $item->model->slug . ' ';
+            }
+            
+           
+            //return redirect('cart')->withSuccessMessage('Item has been removed!');
+            
+            exec("python python/test.py ".$outfilename.' '.$arg1, $output, $return);
+
+            if ($return) {
+                throw new \Exception("Error executing command - error code: $return");
+            }
+            
+            //var_dump($output);
+            
+            
+            //Cart::instance(auth()->id())->destroy();
+            
+            return view('download_eagle')->with('myoutput', $output[0]);
+            
+            
+            
+        }
 
 
 }

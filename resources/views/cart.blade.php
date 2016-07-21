@@ -69,8 +69,8 @@
             </table>
 
             <a href="/dps" class="btn btn-primary btn-lg">Browse More </a> &nbsp;
-            <a href="#" class="btn btn-success btn-lg">Download as Single Eagle File</a>
-
+            <a href="/cart_run" onclick="myFunction()" id="demo" class="btn btn-success btn-lg">Download as Single Eagle File</a>
+            
             <div style="float:right">
                 <form action="/emptyCart" method="POST">
                     {!! csrf_field() !!}
@@ -92,27 +92,15 @@
 
 @endsection
 
-@section('extra-js')
+
     <script>
-        (function(){
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $('.quantity').on('change', function() {
-                var id = $(this).attr('data-id')
-                $.ajax({
-                  type: "PATCH",
-                  url: '/cart/' + id,
-                  data: {
-                    'quantity': this.value,
-                  },
-                  success: function(data) {
-                    window.location.href = '/cart';
-                  }
-                });
-            });
-        })();
+       function myFunction() {
+        //   alert('Please wait while form is submitting');
+        $('#demo').attr("disabled", "disabled");
+        document.getElementById("demo").innerHTML = "Merging Files Please Wait...";
+       // document.getElementById("demo").prop('disabled', true);
+        
+       
+        
+       }
     </script>
-@endsection

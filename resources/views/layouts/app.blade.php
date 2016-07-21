@@ -71,7 +71,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Design Cart <span class="badge">{{ Cart::content()->count(false) }}</span> </a></li>
+                    <li><a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Design Cart <span class="badge">{{ Cart::instance(auth()->id())->content()->count(false) }}</span> </a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
@@ -107,6 +107,7 @@
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
