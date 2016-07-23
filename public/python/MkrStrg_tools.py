@@ -181,10 +181,10 @@ def eagle_lib_merge(srcLib,dstLib):
         dstLib.add_package(i.clone())
         
      
-    print Swoop.From(srcLib).get_devicesets().count()
+    #print Swoop.From(srcLib).get_devicesets().count()
     for i in srcLib.get_devicesets():
         
-        print "Deviceset: "+i.get_name() +" from lib: "+srcLib.get_name()
+        #print "Deviceset: "+i.get_name() +" from lib: "+srcLib.get_name()
         
         dstLib.add_deviceset(i.clone())
     
@@ -192,9 +192,9 @@ def eagle_lib_merge(srcLib,dstLib):
 
 def ShemaHasNet(sch,InNet):
     '''Like GND there can be nets which is common for both sch so we have to check if there is one '''
-    print 'innet:' + InNet.get_name()
+    #print 'innet:' + InNet.get_name()
     for net in Swoop.From(sch).get_sheets().get_nets().clone():
-        print 'netnames:' + net.get_name()
+        #print 'netnames:' + net.get_name()
         if net.get_name() == InNet.get_name():
             return True
     return False
@@ -206,7 +206,7 @@ def eagle_sch_merge(sch1,sch2):
     '''First merging libraries '''
     for srcLib in Swoop.From(sch1).get_libraries().clone():
          srcLibName =  srcLib.get_name()
-         print "sourceLib: " +  srcLibName
+         #print "sourceLib: " +  srcLibName
          
          
          dstLib = sch2.get_library(srcLibName)
@@ -239,7 +239,7 @@ def eagle_sch_merge(sch1,sch2):
     for net in Swoop.From(sch1).get_sheets().get_nets().clone():
         if (ShemaHasNet(sch2,net) == True):
             segments = net.get_segments()
-            print 'same net name found adding segment only'
+            #print 'same net name found adding segment only'
             for segment in segments:
                 Swoop.From(sch2).get_sheets().get_nets().with_name(net.get_name()).add_segment(segment)
        
@@ -267,9 +267,9 @@ sch_file.write('sil_out.sch',True,True)
 '''    
         
 #test all
-def merge_sch_eagle_cord (sch1,sch2,x,y):
+def merge_sch_eagle_cord (sch1,sch2,x,y,mychar):
     
-    rename_sch_unique("z",sch2)
+    rename_sch_unique(mychar,sch2)
     rePos_sch(x,y,sch2)
    
     return eagle_sch_merge(sch2,sch1)

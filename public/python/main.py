@@ -2,6 +2,7 @@ import os
 import sys
 import Swoop
 from MkrStrg_tools import merge_sch_eagle_cord, Max_X_sch, Max_Y_sch
+from string import ascii_letters
 
 offx = 0
 offy = 0
@@ -62,18 +63,20 @@ def parse_args():
 
 def main():
     global gridPos,offx,offy
+    index = 0
     
     outfile, infiles = parse_args()
-    print "outfile:" + outfile
+    #print "outfile:" + outfile
     
     out_sch = Swoop.EagleFile.from_file('python/clean.sch')
     
    
     for infile in infiles:
-        print "infile: " + infile
+        #print "infile: " + infile
+        index=index+1
         in_sch = Swoop.EagleFile.from_file(infile)
         
-        out_sch = merge_sch_eagle_cord(out_sch, in_sch, offx , offy)    
+        out_sch = merge_sch_eagle_cord(out_sch, in_sch, offx , offy, ascii_letters[index])    
         
         offx = offx + Max_X_sch(in_sch);
         
@@ -84,7 +87,7 @@ def main():
   
    
     out_sch.write(outfile,True,True)
-    
+    print  sys.argv[1]
 
     
     
