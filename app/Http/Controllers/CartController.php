@@ -66,7 +66,7 @@ class CartController extends Controller
             return redirect('cart')->withSuccessMessage('Your design cart his been cleared!');
         }
         
-        public function runTestPython(){
+        public function gen_Sch_File_Python(){
             
             $arg1 = '';
             $user_name = str_replace(' ', '_', \Auth::user()->name);
@@ -74,13 +74,16 @@ class CartController extends Controller
             
              
             foreach (Cart::instance(auth()->id())->content() as $item) {
-                $arg1 = $arg1 . $item->model->slug . ' ';
+                $arg1 = $arg1 . 'eagle_sch/'. $item->model->slug . '.sch ';
             }
             
            
             //return redirect('cart')->withSuccessMessage('Item has been removed!');
+            //dd("python python/main.py ".$outfilename.' '.$arg1);
             
-            exec("python python/test.py ".$outfilename.' '.$arg1, $output, $return);
+            exec("python python/main.py ".$outfilename.' '.$arg1, $output, $return);
+            
+            //dd($output);
 
             if ($return) {
                 throw new \Exception("Error executing command - error code: $return");
@@ -95,7 +98,18 @@ class CartController extends Controller
             
             
             
+            
+            
+            
         }
+        
+        
+        public function download_Sch_File($downloadFile){
+        
+            $headers = array('Content-Disposition: attachment',);
+            return \Response::download($downloadFile, $downloadFile, $headers);
+            
+        }    
 
 
 }

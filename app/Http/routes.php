@@ -53,7 +53,9 @@ Route::get('proposals', 'ProposalController@index');
 
 Route::get('/cart', 'CartController@index');
 
-Route::get('/cart_run', 'CartController@runTestPython');
+Route::get('/cart_run', 'CartController@gen_Sch_File_Python');
+
+Route::get('/download_sch/{downloadFile}', 'CartController@download_Sch_File');
 
 Route::post('/cart', 'CartController@store');
 

@@ -10,8 +10,8 @@
                 <div class="panel-body">
                     
                    
-                       
-                        <div><b><a href="url">{{ $myoutput }}</a></b></div>
+                      
+                        <div><b><a href="/download_sch/{{ $myoutput }}">{{ $myoutput }}</a></b></div>
                     
                     
                     
